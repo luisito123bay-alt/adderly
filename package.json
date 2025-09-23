@@ -1,0 +1,23 @@
+{
+  "name": "nodeprueba",
+  "version": "1.0.0",
+  "description": "pruebas",
+  "homepage": "https://github.com/flornerida/QuintoLunes.git",
+  "bugs": {
+    "url": "https://github.com/flornerida/QuintoLunes.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flornerida/QuintoLunes.git"
+  },
+  "license": "ISC",
+  "author": "flor",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
