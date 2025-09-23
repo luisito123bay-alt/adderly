@@ -122,22 +122,27 @@ function generarFibonacci(n) {
 }
 console.log("11. Primeros 10 números de Fibonacci:", generarFibonacci(10));
 
-// 12. Juego de adivinanza
-function juegoAdivinanza() {
-    const numeroSecreto = Math.floor(Math.random() * 10) + 1;
-    let intento;
-    while (intento !== numeroSecreto) {
-        intento = parseInt(prompt("Adivina un número del 1 al 10:"));
+
+// 12. Simulación de juego de adivinanza
+    const numeroSecreto = 7; 
+    const intentos = [3, 5, 7]; 
+
+    for (let i = 0; i < intentos.length; i++) {
+        const intento = intentos[i];
+        console.log(`Intento ${i + 1}: ${intento}`);
         if (intento < numeroSecreto) {
-            alert("Muy bajo");
+            console.log("Muy bajo");
         } else if (intento > numeroSecreto) {
-            alert("Muy alto");
+            console.log("Muy alto");
         } else {
-            alert("¡Correcto!");
+            console.log("¡Correcto!");
+            break;
         }
     }
 }
-// juegoAdivinanza(); // Descomenta para usar en navegador
+console.log("12. Juego de adivinanza simulado:");
+juegoAdivinanzaSimulado();
+
 
 // 13. Cuenta regresiva desde un número hasta 0
 function cuentaRegresiva(desde) {
@@ -148,15 +153,18 @@ function cuentaRegresiva(desde) {
 console.log("13. Cuenta regresiva desde 5:");
 cuentaRegresiva(5);
 
-// 14. Validar que el número ingresado sea mayor a 0
-function solicitarNumeroValido() {
-    let numero;
-    do {
-        numero = parseInt(prompt("Ingresa un número mayor a 0:"));
-    } while (numero <= 0 || isNaN(numero));
-    alert("Número válido ingresado: " + numero);
+
+// 14. Validar número mayor a 0 (simulado)
+function validarNumeroMayorACero(numero) {
+    if (numero > 0) {
+        console.log("Número válido:", numero);
+    } else {
+        console.log("Número inválido. Debe ser mayor a 0.");
+    }
 }
-// solicitarNumeroValido(); // Descomenta para usar en navegador
+console.log("14. Validación de número:");
+validarNumeroMayorACero(4); 
+
 
 // 15. Mostrar números del 1 al 5 usando do...while
 function mostrarDel1Al5() {
@@ -169,13 +177,15 @@ function mostrarDel1Al5() {
 console.log("15. Números del 1 al 5:");
 mostrarDel1Al5();
 
+
 // 16. Sumar solo números impares entre 1 y 50 hasta que la suma supere 500
 function sumarImparesHasta500() {
     let suma = 0;
     for (let i = 1; i <= 50; i += 2) {
         suma += i;
+        console.log(`Suma parcial: ${suma}`);
         if (suma > 500) {
-            console.log("Suma superó 500 en:", i, "Suma:", suma);
+            console.log("Suma superó 500 en:", i);
             break;
         }
     }
@@ -183,37 +193,45 @@ function sumarImparesHasta500() {
 console.log("16. Sumar impares hasta que la suma supere 500:");
 sumarImparesHasta500();
 
-// 17. Contador de intentos de login
-function loginIntentos() {
+
+// 17. Contador de intentos de login (simulado)
+function loginIntentosSimulado() {
     const usuarioCorrecto = "admin";
     const claveCorrecta = "1234";
-    let intentos = 0;
-    while (intentos < 3) {
-        const usuario = prompt("Usuario:");
-        const clave = prompt("Contraseña:");
-        if (usuario === usuarioCorrecto && clave === claveCorrecta) {
-            alert("¡Login exitoso!");
+    const intentos = [
+        { usuario: "admin", clave: "0000" },
+        { usuario: "user", clave: "1234" },
+        { usuario: "admin", clave: "1234" }
+    ];
+
+    for (let i = 0; i < 3; i++) {
+        let intento = intentos[i];
+        console.log(`Intento ${i + 1}:`, intento);
+        if (intento.usuario === usuarioCorrecto && intento.clave === claveCorrecta) {
+            console.log("¡Login exitoso!");
             return;
         } else {
-            alert("Datos incorrectos.");
-            intentos++;
+            console.log("Datos incorrectos.");
         }
     }
-    alert("Has excedido los intentos.");
+    console.log("Has excedido los 3 intentos.");
 }
-// loginIntentos(); // Descomenta para usar en navegador
+console.log("17. Simulación de login:");
+loginIntentosSimulado();
 
-// 18. Sumar hasta que el usuario ingrese 0
-function sumarHastaCero() {
+
+// 18. Sumar hasta que el usuario ingrese 0 (simulado)
+function sumarHastaCeroSimulado(entradas) {
     let suma = 0;
-    let numero;
-    do {
-        numero = parseInt(prompt("Ingresa un número (0 para terminar):"));
+    for (let i = 0; i < entradas.length; i++) {
+        let numero = entradas[i];
+        if (numero === 0) break;
         suma += numero;
-    } while (numero !== 0);
-    alert("Suma total: " + suma);
+    }
+    console.log("Suma total:", suma);
 }
-// sumarHastaCero(); // Descomenta para usar en navegador
+console.log("18. Sumar hasta que se ingrese 0:");
+sumarHastaCeroSimulado([5, 10, 15, 0, 20]); 
 
 // 19. Imprimir la serie de Fibonacci hasta que un número supere 100
 function fibonacciHasta100() {
@@ -226,6 +244,7 @@ function fibonacciHasta100() {
     console.log("19. Fibonacci hasta que supere 100:", fib);
 }
 fibonacciHasta100();
+
 
 // 20. Imprimir múltiplos de 3 menores a 50
 function multiplosDe3() {
