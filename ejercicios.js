@@ -112,105 +112,127 @@ function tablaMultiplicar(numero) {
 }
 console.log("Tabla del 5:");
 tablaMultiplicar(5);
-//Calcular el promedio de un array
-function promedioArray(arr) {
-    let suma = 0;
-    for (let i = 0; i < arr.length; i++) {
-        suma += arr[i];
+// 11. Generar una secuencia de Fibonacci de los primeros 10 números
+function generarFibonacci(n) {
+    let fib = [0, 1];
+    for (let i = 2; i < n; i++) {
+        fib.push(fib[i - 1] + fib[i - 2]);
     }
-    return suma / arr.length;
+    return fib;
 }
-const numeros11 = [10, 20, 30, 40];
-console.log("Promedio:", promedioArray(numeros11));
-//Contar elementos
-function contarMayoresA(arr, limite) {
-    let contador = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > limite) contador++;
-    }
-    return contador;
-}
-const numeros12 = [5, 15, 25, 35];
-const limite12 = 20;
-console.log(`Cantidad de números mayores a ${limite12}:`, contarMayoresA(numeros12, limite12));
-//Duplicar todos los elementos
-function duplicarArray(arr) {
-    let resultado = [];
-    for (let i = 0; i < arr.length; i++) {
-        resultado.push(arr[i] * 2);
-    }
-    return resultado;
-}
-const numeros13 = [1, 2, 3, 4];
-console.log("Array duplicado:", duplicarArray(numeros13));
-//elementos negativos
-function filtrarNegativos(arr) {
-    let negativos = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < 0) negativos.push(arr[i]);
-    }
-    return negativos;
-}
-const numeros14 = [-5, 10, -15, 20];
-console.log("Números negativos:", filtrarNegativos(numeros14));
-//convertir todos los numeros a string
-function convertirAStrings(arr) {
-    let resultado = [];
-    for (let i = 0; i < arr.length; i++) {
-        resultado.push(arr[i].toString());
-    }
-    return resultado;
-}
-const numeros15 = [100, 200, 300];
-console.log("Números como strings:", convertirAStrings(numeros15));
-//elementos positivos
-function todosPositivos(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] <= 0) return false;
-    }
-    return true;
-}
-const numeros16 = [1, 2, 3, -4];
-console.log("¿Todos positivos?", todosPositivos(numeros16));
-//numero mas sercano a 0 
-function masCercanoACero(arr) {
-    let cercano = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (Math.abs(arr[i]) < Math.abs(cercano)) {
-            cercano = arr[i];
+console.log("11. Primeros 10 números de Fibonacci:", generarFibonacci(10));
+
+// 12. Juego de adivinanza
+function juegoAdivinanza() {
+    const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+    let intento;
+    while (intento !== numeroSecreto) {
+        intento = parseInt(prompt("Adivina un número del 1 al 10:"));
+        if (intento < numeroSecreto) {
+            alert("Muy bajo");
+        } else if (intento > numeroSecreto) {
+            alert("Muy alto");
+        } else {
+            alert("¡Correcto!");
         }
     }
-    return cercano;
 }
-const numeros17 = [10, -3, 5, -1];
-console.log("Número más cercano a cero:", masCercanoACero(numeros17));
-//contar cuantos 0 hay
-function contarCeros(arr) {
-    let contador = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 0) contador++;
+// juegoAdivinanza(); // Descomenta para usar en navegador
+
+// 13. Cuenta regresiva desde un número hasta 0
+function cuentaRegresiva(desde) {
+    for (let i = desde; i >= 0; i--) {
+        console.log(i);
     }
-    return contador;
 }
-const numeros18 = [0, 1, 0, 2, 0, 3];
-console.log("Cantidad de ceros:", contarCeros(numeros18));
-//elevar todos los elementos al cuadrado
-function elevarAlCuadrado(arr) {
-    let resultado = [];
-    for (let i = 0; i < arr.length; i++) {
-        resultado.push(arr[i] ** 2); 
+console.log("13. Cuenta regresiva desde 5:");
+cuentaRegresiva(5);
+
+// 14. Validar que el número ingresado sea mayor a 0
+function solicitarNumeroValido() {
+    let numero;
+    do {
+        numero = parseInt(prompt("Ingresa un número mayor a 0:"));
+    } while (numero <= 0 || isNaN(numero));
+    alert("Número válido ingresado: " + numero);
+}
+// solicitarNumeroValido(); // Descomenta para usar en navegador
+
+// 15. Mostrar números del 1 al 5 usando do...while
+function mostrarDel1Al5() {
+    let i = 1;
+    do {
+        console.log(i);
+        i++;
+    } while (i <= 5);
+}
+console.log("15. Números del 1 al 5:");
+mostrarDel1Al5();
+
+// 16. Sumar solo números impares entre 1 y 50 hasta que la suma supere 500
+function sumarImparesHasta500() {
+    let suma = 0;
+    for (let i = 1; i <= 50; i += 2) {
+        suma += i;
+        if (suma > 500) {
+            console.log("Suma superó 500 en:", i, "Suma:", suma);
+            break;
+        }
     }
-    return resultado;
 }
-const numeros19 = [2, 3, 4];
-console.log("Elementos al cuadrado:", elevarAlCuadrado(numeros19));
-//imprimir los multiplos de 3 hasta 50 
-function generarNumeros(n) {
+console.log("16. Sumar impares hasta que la suma supere 500:");
+sumarImparesHasta500();
+
+// 17. Contador de intentos de login
+function loginIntentos() {
+    const usuarioCorrecto = "admin";
+    const claveCorrecta = "1234";
+    let intentos = 0;
+    while (intentos < 3) {
+        const usuario = prompt("Usuario:");
+        const clave = prompt("Contraseña:");
+        if (usuario === usuarioCorrecto && clave === claveCorrecta) {
+            alert("¡Login exitoso!");
+            return;
+        } else {
+            alert("Datos incorrectos.");
+            intentos++;
+        }
+    }
+    alert("Has excedido los intentos.");
+}
+// loginIntentos(); // Descomenta para usar en navegador
+
+// 18. Sumar hasta que el usuario ingrese 0
+function sumarHastaCero() {
+    let suma = 0;
+    let numero;
+    do {
+        numero = parseInt(prompt("Ingresa un número (0 para terminar):"));
+        suma += numero;
+    } while (numero !== 0);
+    alert("Suma total: " + suma);
+}
+// sumarHastaCero(); // Descomenta para usar en navegador
+
+// 19. Imprimir la serie de Fibonacci hasta que un número supere 100
+function fibonacciHasta100() {
+    let fib = [0, 1];
+    while (true) {
+        let next = fib[fib.length - 1] + fib[fib.length - 2];
+        if (next > 100) break;
+        fib.push(next);
+    }
+    console.log("19. Fibonacci hasta que supere 100:", fib);
+}
+fibonacciHasta100();
+
+// 20. Imprimir múltiplos de 3 menores a 50
+function multiplosDe3() {
     let resultado = [];
-    for (let i = 1; i <= n; i++) {
+    for (let i = 3; i < 50; i += 3) {
         resultado.push(i);
     }
-    return resultado;
+    console.log("20. Múltiplos de 3 hasta 50:", resultado);
 }
-const numero20 = 10;
-console.log(`Números del 1 al ${numero20}:`, generarNumeros(numero20));
+multiplosDe3();
