@@ -139,7 +139,6 @@ console.log("11. Primeros 10 números de Fibonacci:", generarFibonacci(10));
             break;
         }
     }
-}
 console.log("12. Juego de adivinanza simulado:");
 juegoAdivinanzaSimulado();
 
